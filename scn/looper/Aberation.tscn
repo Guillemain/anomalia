@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgbq37mtis6kj"]
+
+[ext_resource type="Script" path="res://scn/looper/Aberation.gd" id="1_2shai"]
+[ext_resource type="Shader" path="res://component/fx/Aberation.gdshader" id="2_c6iwg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ox4tp"]
+frequency = 0.044
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_w4va7"]
+width = 128
+height = 128
+seamless = true
+seamless_blend_skirt = 0.436
+bump_strength = 5.9
+noise = SubResource("FastNoiseLite_ox4tp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwjqx"]
+shader = ExtResource("2_c6iwg")
+shader_parameter/clignotement = null
+shader_parameter/distortion = SubResource("NoiseTexture2D_w4va7")
+
+[node name="Aberation" type="Area2D"]
+collision_layer = 12
+collision_mask = 12
+monitoring = false
+script = ExtResource("1_2shai")
+
+[node name="RenderShape" type="Polygon2D" parent="."]
+z_index = 2
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vwjqx")
+color = Color(0, 0, 0, 1)
+
+[node name="bbc" type="BackBufferCopy" parent="RenderShape"]
+z_index = 1
+texture_repeat = 2
+position = Vector2(54.5, 18.5)
+scale = Vector2(2.155, 1.465)
+copy_mode = 2
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

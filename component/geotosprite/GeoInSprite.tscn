@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://csemgiin7d2fb"]
+
+[ext_resource type="Script" path="res://component/geotosprite/GeoInSprite.gd" id="1_5wh0s"]
+[ext_resource type="Shader" path="res://component/geotosprite/GeoInSprite.gdshader" id="1_d67io"]
+[ext_resource type="Environment" uid="uid://cokcf1lnhqgr7" path="res://default_env_3D.tres" id="2_fcpn8"]
+[ext_resource type="PackedScene" uid="uid://b8it5gc8773s3" path="res://scn/player/raw/witch.glb" id="4_mkoko"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lrmaj"]
+shader = ExtResource("1_d67io")
+shader_parameter/line_color = null
+shader_parameter/line_thickness = 2.0
+shader_parameter/add_l = null
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wl8kh"]
+viewport_path = NodePath("SubViewport")
+
+[node name="GeoInSprite" type="Sprite2D"]
+material = SubResource("ShaderMaterial_lrmaj")
+texture = SubResource("ViewportTexture_wl8kh")
+offset = Vector2(0.67269, -76.455)
+script = ExtResource("1_5wh0s")
+direction_disred = Vector2(1, 0)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(200, 200)
+
+[node name="pivot" type="Node3D" parent="SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.938179, 0.34615, 0, -0.34615, 0.938179, 0, 2.88186, 5.03845)
+environment = ExtResource("2_fcpn8")
+projection = 1
+size = 2.51
+
+[node name="witch" parent="SubViewport" instance=ExtResource("4_mkoko")]
+visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(0, 5)
+scale = Vector2(0.323273, 0.326014)
+color = Color(0.470588, 0.376471, 0.333333, 0.34902)
+polygon = PackedVector2Array(-97.7455, -32.5818, -55.8546, -65.1636, -9.30908, -69.8182, 46.5454, -69.8182, 93.0909, -39.5636, 102.4, -6.98181, 74.4727, 18.6182, 25.6, 30.2545, -18.6182, 34.9091, -58.1818, 13.9637, -88.4364, -2.32727)

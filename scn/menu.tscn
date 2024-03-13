@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw50vtv74205g"]
+
+[ext_resource type="Script" path="res://scn/mainmenu.gd" id="1_mlejf"]
+[ext_resource type="Theme" uid="uid://c14kom2lbgcfh" path="res://scn/font/usual.tres" id="1_qo8cu"]
+[ext_resource type="FontFile" uid="uid://douu72vsnaekw" path="res://scn/font/Fava-black.ttf" id="2_wiro6"]
+[ext_resource type="Texture2D" uid="uid://35hovqdj2ep6" path="res://scn/menu/persoA.png" id="3_akyiq"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_mlejf")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1204.0
+offset_bottom = 730.0
+theme = ExtResource("1_qo8cu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 177.0
+offset_right = 1023.0
+offset_bottom = 289.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_constants/outline_size = 17
+theme_override_fonts/normal_font = ExtResource("2_wiro6")
+theme_override_font_sizes/normal_font_size = 70
+bbcode_enabled = true
+text = "[center]A N O M A L I A [/center]"
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 298.0
+offset_right = 828.0
+offset_bottom = 387.0
+text = "Tutorial"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 610.0
+offset_top = 402.0
+offset_right = 827.0
+offset_bottom = 491.0
+text = "Main level"
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 613.0
+offset_top = 513.0
+offset_right = 830.0
+offset_bottom = 602.0
+text = "Hard level"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 636.0
+offset_right = 1181.0
+offset_bottom = 723.0
+text = "Made by AUNE for Acreola JAM0
+font : COMICY by  Khurasan and Zyzol Szymon Furjan"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(600, 368)
+
+[node name="PersoA" type="Sprite2D" parent="."]
+position = Vector2(300.354, 452.375)
+scale = Vector2(0.554614, 0.554614)
+texture = ExtResource("3_akyiq")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -100
+color = Color(0.945098, 0.858824, 0.678431, 1)
+polygon = PackedVector2Array(-84, -51, 1570, -51, 1301, 826, 278, 792, -155, 696)
+
+[connection signal="pressed" from="Control/Button" to="." method="gotoscn" binds= ["res://scn/lvl/tuto.tscn"]]
+[connection signal="pressed" from="Control/Button2" to="." method="gotoscn" binds= ["res://scn/main.tscn"]]
+[connection signal="pressed" from="Control/Button3" to="." method="gotoscn" binds= ["res://scn/main_hard.tscn"]]

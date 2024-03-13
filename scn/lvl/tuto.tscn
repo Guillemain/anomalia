@@ -1,0 +1,261 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhml3mmjmj81j"]
+
+[ext_resource type="Script" path="res://scn/lvl/tuto.gd" id="1_hnrq1"]
+[ext_resource type="PackedScene" uid="uid://b2fdwc4haoqat" path="res://scn/deco/terrain.tscn" id="1_nm5pc"]
+[ext_resource type="PackedScene" uid="uid://c76vvidqdhkfv" path="res://scn/player/player.tscn" id="2_iy54d"]
+[ext_resource type="PackedScene" uid="uid://74dfmkn1ccg3" path="res://scn/peon/argn.tscn" id="3_ey03x"]
+[ext_resource type="PackedScene" uid="uid://cmiw1kbj64eqd" path="res://component/cameraman.tscn" id="4_y2wc1"]
+[ext_resource type="PackedScene" uid="uid://dr15cno2k6wor" path="res://scn/looper/loop_creator.tscn" id="5_4ams0"]
+[ext_resource type="PackedScene" uid="uid://bgbq37mtis6kj" path="res://scn/looper/Aberation.tscn" id="6_jr60s"]
+[ext_resource type="Theme" uid="uid://c14kom2lbgcfh" path="res://scn/font/usual.tres" id="7_ya022"]
+[ext_resource type="PackedScene" uid="uid://dtdmcruhckx21" path="res://scn/deco/sol.tscn" id="10_8a7wa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ck1hl"]
+size = Vector2(316, 349)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1r6e"]
+size = Vector2(203, 74)
+
+[node name="Tuto" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_hnrq1")
+
+[node name="Terrain" parent="." instance=ExtResource("1_nm5pc")]
+position = Vector2(-61, -103)
+
+[node name="Player" parent="." instance=ExtResource("2_iy54d")]
+position = Vector2(304, 373)
+
+[node name="Peon" parent="." instance=ExtResource("3_ey03x")]
+position = Vector2(2048, 385)
+dumb = true
+
+[node name="cameraman" parent="." instance=ExtResource("4_y2wc1")]
+position = Vector2(309, 339)
+
+[node name="LoopCreator" parent="." instance=ExtResource("5_4ams0")]
+
+[node name="Aberation" parent="." instance=ExtResource("6_jr60s")]
+position = Vector2(1264, 56)
+auto_check = true
+auto_redux = false
+can_destroy = false
+
+[node name="CollisionShape2D" parent="Aberation" index="1"]
+polygon = PackedVector2Array(33, 32, 30, 63, 30, 101, 22, 159, 26, 211, 57, 219, 90, 225, 143, 224, 172, 185, 177, 147, 169, 76, 165, 38, 139, -6, 86, 10, 61, 22)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("7_ya022")
+
+[node name="move" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 76.0
+offset_right = 668.0
+offset_bottom = 149.0
+
+[node name="move" type="RichTextLabel" parent="Control/move"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 534.0
+offset_bottom = 60.0
+bbcode_enabled = true
+text = "use [b]arrow[/b] or [b] wasd[/b]  to move"
+
+[node name="move2" type="Panel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 139.0
+offset_top = 458.0
+offset_right = 752.0
+offset_bottom = 616.0
+pivot_offset = Vector2(285, 82)
+
+[node name="move" type="RichTextLabel" parent="Control/move2"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 609.0
+offset_bottom = 196.0
+bbcode_enabled = true
+text = "The green bar is your life !
+you're the [wave amp=50.0 freq=5.0 connected=1][b]Anomalia[/b][/wave],
+and the [wave amp=50.0 freq=5.0 connected=1][color=red][b]Eyes (0)[/b][/color][/wave] want to catch you. "
+
+[node name="aber" type="Panel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1195.0
+offset_top = -102.0
+offset_right = 1630.0
+offset_bottom = -19.0
+pivot_offset = Vector2(192, 35)
+
+[node name="move" type="RichTextLabel" parent="Control/aber"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 450.0
+offset_bottom = 97.0
+bbcode_enabled = true
+text = "This is your [wave amp=50.0 freq=5.0 connected=1][b]aberration[/b][/wave]"
+
+[node name="aber2" type="Panel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1184.0
+offset_top = 376.0
+offset_right = 1534.0
+offset_bottom = 494.0
+pivot_offset = Vector2(163, 53)
+
+[node name="move" type="Label" parent="Control/aber2"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 429.0
+offset_bottom = 60.0
+text = "You are the only one 
+able to go through"
+
+[node name="aber3" type="Panel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1553.0
+offset_top = 8.0
+offset_right = 1726.0
+offset_bottom = 83.0
+pivot_offset = Vector2(83, 36)
+
+[node name="move" type="Label" parent="Control/aber3"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 429.0
+offset_bottom = 60.0
+text = "You see?"
+
+[node name="eye" type="Panel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1768.0
+offset_top = -139.0
+offset_right = 2355.0
+offset_bottom = 57.0
+pivot_offset = Vector2(311, 96)
+
+[node name="move" type="RichTextLabel" parent="Control/eye"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 567.0
+offset_bottom = 195.0
+bbcode_enabled = true
+text = "An agent form the [wave amp=50.0 freq=5.0 connected=1][color=red][b]Eyes (0)![/b][/color][/wave]
+Use [b] Shift, k, space[/b] to create an abberation. [b]surounding the enemy[/b] "
+
+[node name="eye2" type="Panel" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 1778.0
+offset_top = 662.0
+offset_right = 2365.0
+offset_bottom = 826.0
+pivot_offset = Vector2(321, 87)
+
+[node name="move" type="RichTextLabel" parent="Control/eye2"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 567.0
+offset_bottom = 157.0
+bbcode_enabled = true
+text = "Nice,
+They're going to be more numerous and more vicious, take care "
+
+[node name="Button" type="Button" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 2172.0
+offset_top = 518.0
+offset_right = 2376.0
+offset_bottom = 597.0
+pivot_offset = Vector2(93, 36)
+text = "let's go!"
+
+[node name="before aberration" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="before aberration"]
+position = Vector2(1156, 194.5)
+shape = SubResource("RectangleShape2D_ck1hl")
+
+[node name="before aberration2" type="Area2D" parent="."]
+position = Vector2(404, 11)
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="before aberration2"]
+position = Vector2(1156, 194.5)
+shape = SubResource("RectangleShape2D_ck1hl")
+
+[node name="letgo" type="Area2D" parent="."]
+visible = false
+position = Vector2(1323, 271)
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="letgo"]
+position = Vector2(952.5, 286)
+shape = SubResource("RectangleShape2D_c1r6e")
+debug_color = Color(0.788235, 0.407843, 0.364706, 0.419608)
+
+[node name="Sol" parent="." instance=ExtResource("10_8a7wa")]
+z_index = -6
+position = Vector2(446, 326)
+
+[node name="Sol2" parent="." instance=ExtResource("10_8a7wa")]
+z_index = -6
+position = Vector2(2031, 439)
+
+[node name="Sol3" parent="." instance=ExtResource("10_8a7wa")]
+z_index = -6
+position = Vector2(2048, 180)
+
+[node name="Sold3" parent="Sol3" index="1"]
+position = Vector2(-472, 28)
+
+[node name="Sold4" parent="Sol3" index="2"]
+position = Vector2(-624, -56)
+
+[node name="Sold5" parent="Sol3" index="3"]
+position = Vector2(-593, -27)
+
+[node name="Sol" parent="Sol3" index="6"]
+position = Vector2(-739, 57)
+
+[node name="Sol6" parent="Sol3" index="7"]
+position = Vector2(-916, -26)
+
+[node name="Sol2" parent="Sol3" index="8"]
+position = Vector2(-1147, -69)
+
+[node name="Sol3" parent="Sol3" index="9"]
+position = Vector2(221, -19)
+
+[node name="Sol5" parent="Sol3" index="10"]
+position = Vector2(-161, -41)
+
+[connection signal="move" from="Player" to="." method="_on_player_move"]
+[connection signal="dead" from="Peon" to="." method="_on_peon_dead"]
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="body_entered" from="before aberration" to="." method="_on_before_aberration_area_entered"]
+[connection signal="body_entered" from="before aberration2" to="." method="_on_after_abberation_area_entered"]
+[connection signal="body_entered" from="letgo" to="." method="_on_letgo_body_entered"]
+
+[editable path="Aberation"]
+[editable path="Sol3"]

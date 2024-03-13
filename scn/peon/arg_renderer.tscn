@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy5kfuyi4pklh"]
+
+[ext_resource type="PackedScene" uid="uid://csemgiin7d2fb" path="res://component/geotosprite/GeoInSprite.tscn" id="1_j7ghu"]
+[ext_resource type="PackedScene" uid="uid://bkrm8fgtbdix" path="res://scn/peon/raw/areg.glb" id="2_78vk8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_glr2k"]
+viewport_path = NodePath("SubViewport")
+
+[node name="GeoInSprite" instance=ExtResource("1_j7ghu")]
+texture = SubResource("ViewportTexture_glr2k")
+
+[node name="obj" parent="SubViewport" index="2" instance=ExtResource("2_78vk8")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)

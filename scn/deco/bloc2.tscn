@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbmvmhmfdh161"]
+
+[ext_resource type="Texture2D" uid="uid://bnqyi1f5kvvsu" path="res://scn/deco/mur2.png" id="1_yhakj"]
+
+[node name="Bloc2" type="StaticBody2D"]
+collision_layer = 65
+collision_mask = 65
+
+[node name="Mur2" type="Sprite2D" parent="."]
+position = Vector2(-4, -66)
+texture = ExtResource("1_yhakj")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-106, -34, -36, -81, 27, -81, 103, -40, -5, 21)

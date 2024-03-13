@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn5q7eloksm7k"]
+
+[ext_resource type="Script" path="res://scn/fx/dash_fx.gd" id="1_86xyv"]
+
+[sub_resource type="Curve" id="Curve_i66nr"]
+_data = [Vector2(0.0322581, 0.516483), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="DashFx" type="Line2D"]
+points = PackedVector2Array(16, 20, 496, 27)
+width = 10.295
+width_curve = SubResource("Curve_i66nr")
+default_color = Color(0, 0, 0, 1)
+antialiased = true
+script = ExtResource("1_86xyv")

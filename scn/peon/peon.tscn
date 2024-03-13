@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqcfh42i4p2o2"]
+
+[ext_resource type="Script" path="res://scn/peon/peon.gd" id="1_juvni"]
+[ext_resource type="PackedScene" uid="uid://cgy0cvex81j5g" path="res://scn/peon/peo_render.tscn" id="2_nkac4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0rlbw"]
+radius = 21.095
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5ks6q"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75j3y"]
+radius = 27.074
+
+[node name="Peon" type="CharacterBody2D" groups=["peon"]]
+collision_layer = 65
+collision_mask = 65
+motion_mode = 1
+script = ExtResource("1_juvni")
+max_speed = 200.0
+min_speed = 120.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_0rlbw")
+debug_color = Color(1, 0, 0.0901961, 0.419608)
+
+[node name="aberration_test" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, -6)
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="aberration_test"]
+shape = SubResource("CircleShape2D_0rlbw")
+debug_color = Color(0.882353, 0.294118, 0.411765, 0.419608)
+
+[node name="peorender" parent="." instance=ExtResource("2_nkac4")]
+texture = SubResource("ViewportTexture_5ks6q")
+
+[node name="hurtBox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(1, -12)
+shape = SubResource("CircleShape2D_75j3y")
+debug_color = Color(0.729412, 0.470588, 0.121569, 0.419608)
+
+[node name="pivot" type="Node2D" parent="."]
+position = Vector2(2, -12)
+
+[node name="forward" type="RayCast2D" parent="pivot"]
+position = Vector2(31, 2)
+target_position = Vector2(130, 1)
+collision_mask = 68
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="right" type="RayCast2D" parent="pivot"]
+position = Vector2(25, 19)
+target_position = Vector2(187, 41)
+collision_mask = 68
+hit_from_inside = true
+collide_with_areas = true
+
+[node name="left" type="RayCast2D" parent="pivot"]
+position = Vector2(29, -14)
+rotation = -1.26464
+target_position = Vector2(103.033, 166.698)
+collision_mask = 68
+hit_from_inside = true
+collide_with_areas = true
+
+[connection signal="area_entered" from="aberration_test" to="." method="_on_aberration_test_area_entered"]

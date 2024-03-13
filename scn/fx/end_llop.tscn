@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgdmd7j4o7d0"]
+
+[ext_resource type="Texture2D" uid="uid://d2bu8kprkvn8l" path="res://scn/fx/frames/explo30001.png" id="1_2008e"]
+[ext_resource type="Texture2D" uid="uid://choyqbwuo170q" path="res://scn/fx/frames/explo30002.png" id="2_tth0p"]
+[ext_resource type="Texture2D" uid="uid://bu4evhey3u881" path="res://scn/fx/frames/explo30003.png" id="3_ruewr"]
+[ext_resource type="Texture2D" uid="uid://c3e60bdq5s0eh" path="res://scn/fx/frames/explo30004.png" id="4_4jna6"]
+[ext_resource type="Texture2D" uid="uid://b5s550iuxftav" path="res://scn/fx/frames/explo30005.png" id="5_c6po8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pdy5p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2008e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tth0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ruewr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4jna6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c6po8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="EndLlop" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_pdy5p")
+autoplay = "default"
+
+[connection signal="animation_finished" from="." to="." method="queue_free"]

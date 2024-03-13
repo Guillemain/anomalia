@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://hdaric1ljtm8"]
+
+[ext_resource type="PackedScene" uid="uid://dr15cno2k6wor" path="res://scn/looper/loop_creator.tscn" id="1_pg0th"]
+[ext_resource type="PackedScene" uid="uid://c76vvidqdhkfv" path="res://scn/player/player.tscn" id="2_s5sbg"]
+[ext_resource type="PackedScene" uid="uid://h45u7yc7ebec" path="res://scn/looper/bonusloop.tscn" id="3_kyvoq"]
+[ext_resource type="PackedScene" uid="uid://bqcfh42i4p2o2" path="res://scn/peon/peon.tscn" id="4_nafer"]
+[ext_resource type="Script" path="res://scn/Spawner.gd" id="5_x6ngf"]
+
+[node name="Main" type="Node2D"]
+y_sort_enabled = true
+
+[node name="LoopCreator" parent="." instance=ExtResource("1_pg0th")]
+
+[node name="Player" parent="." instance=ExtResource("2_s5sbg")]
+
+[node name="Bonusloop" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(333, 392)
+
+[node name="Bonusloop2" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(426, 279)
+
+[node name="Bonusloop3" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(600, 204)
+
+[node name="Bonusloop4" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(672, 438)
+
+[node name="Bonusloop5" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(816, 266)
+
+[node name="Bonusloop6" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(1001, 470)
+
+[node name="Bonusloop7" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(437, 132)
+
+[node name="Bonusloop8" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(212, 248)
+
+[node name="Bonusloop9" parent="." instance=ExtResource("3_kyvoq")]
+position = Vector2(330, 482)
+
+[node name="Peon" parent="." instance=ExtResource("4_nafer")]
+position = Vector2(432, 524)
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("5_x6ngf")
+to_spawn = ExtResource("4_nafer")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+autostart = true
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

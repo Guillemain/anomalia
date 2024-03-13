@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4eb53hh8q3fh"]
+
+[ext_resource type="Script" path="res://scn/looper/loop_edge.gd" id="1_nfjd5"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mof0h"]
+a = Vector2(-9, 0)
+b = Vector2(10, 0)
+
+[node name="LoopEdge" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+monitoring = false
+monitorable = false
+script = ExtResource("1_nfjd5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_mof0h")
+debug_color = Color(0.819608, 0.403922, 0, 0.419608)

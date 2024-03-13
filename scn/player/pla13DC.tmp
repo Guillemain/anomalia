@@ -1,0 +1,151 @@
+[gd_scene load_steps=15 format=3 uid="uid://c76vvidqdhkfv"]
+
+[ext_resource type="Script" path="res://scn/player/player.gd" id="1_g4g2x"]
+[ext_resource type="PackedScene" uid="uid://cvaosq5ffkryn" path="res://scn/player/render_player.tscn" id="1_p0wfs"]
+[ext_resource type="Script" path="res://scn/player/Hbar.gd" id="3_k55kv"]
+[ext_resource type="PackedScene" uid="uid://bgqlr63kslhaw" path="res://scn/player/dasher.tscn" id="4_jwq3p"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8dqmy"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihgev"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3y5f8"]
+radius = 21.0238
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ndc6l"]
+radius = 27.2947
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afntq"]
+radius = 40.4475
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xepbs"]
+radius = 23.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghj1g"]
+bg_color = Color(0.592157, 0.952941, 0.737255, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxoik"]
+bg_color = Color(0.247059, 0.211765, 0.133333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gs6w"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="Theme" id="Theme_evfq6"]
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ghj1g")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_bxoik")
+HSlider/styles/slider = SubResource("StyleBoxFlat_3gs6w")
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
+script = ExtResource("1_g4g2x")
+
+[node name="GeoInSprite" parent="." instance=ExtResource("1_p0wfs")]
+texture = SubResource("ViewportTexture_8dqmy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_ihgev")
+
+[node name="loop" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="loop"]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_3y5f8")
+debug_color = Color(0.827451, 0.32549, 0.588235, 0.419608)
+
+[node name="Aberration_test" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aberration_test"]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_ndc6l")
+debug_color = Color(0.983744, 0.0607601, 0.285371, 0.42)
+
+[node name="bonu_loop" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bonu_loop"]
+position = Vector2(0, -30)
+shape = SubResource("CircleShape2D_afntq")
+debug_color = Color(0.207843, 0.615686, 0.505882, 0.419608)
+
+[node name="Hitbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -29)
+shape = SubResource("CircleShape2D_xepbs")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -2.00001
+offset_top = -129.0
+offset_right = -2.00001
+offset_bottom = -129.0
+scale = Vector2(0.928522, 0.8198)
+
+[node name="VSlider" type="HSlider" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.937
+anchor_bottom = 0.5
+offset_left = -66.7728
+offset_top = -7.31886
+offset_right = 71.2722
+offset_bottom = 10.6811
+pivot_offset = Vector2(70.0038, 4.87924)
+theme = SubResource("Theme_evfq6")
+max_value = 10.0
+value = 10.0
+editable = false
+scrollable = false
+script = ExtResource("3_k55kv")
+
+[node name="pivot" type="Node2D" parent="."]
+position = Vector2(0, -29)
+
+[node name="Dasher" parent="pivot" instance=ExtResource("4_jwq3p")]
+position = Vector2(69, -1)
+
+[connection signal="pv_get" from="." to="Control/VSlider" method="_on_player_pv_get"]
+[connection signal="spv_change" from="." to="Control/VSlider" method="_on_player_spv_change"]
+[connection signal="area_entered" from="loop" to="." method="_on_loop_area_entered"]
+[connection signal="area_entered" from="Aberration_test" to="." method="_on_aberration_test_area_entered"]
+[connection signal="area_exited" from="Aberration_test" to="." method="_on_aberration_test_area_exited"]
+[connection signal="area_entered" from="bonu_loop" to="." method="_on_bonu_loop_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

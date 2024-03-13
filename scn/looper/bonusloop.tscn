@@ -1,0 +1,67 @@
+[gd_scene load_steps=13 format=3 uid="uid://h45u7yc7ebec"]
+
+[ext_resource type="Texture2D" uid="uid://bphiij11s0o74" path="res://scn/fx/frames/goute0001.png" id="1_cbnyp"]
+[ext_resource type="Texture2D" uid="uid://5loi855w1piq" path="res://scn/fx/frames/goute0002.png" id="2_20vpk"]
+[ext_resource type="Texture2D" uid="uid://dwe2s283ro1xk" path="res://scn/fx/frames/goute0003.png" id="3_avty7"]
+[ext_resource type="Texture2D" uid="uid://gmcyn5pku021" path="res://scn/fx/frames/goute0004.png" id="4_e1hi5"]
+[ext_resource type="Texture2D" uid="uid://cfwg01hy8cy2l" path="res://scn/fx/frames/goute0005.png" id="5_ws7jl"]
+[ext_resource type="Texture2D" uid="uid://dxaa4j0fwptwi" path="res://scn/fx/frames/goute0006.png" id="6_vrkxo"]
+[ext_resource type="Texture2D" uid="uid://cqslvftkdf3q6" path="res://scn/fx/frames/goute0007.png" id="7_v5qdy"]
+[ext_resource type="Texture2D" uid="uid://c5bjwu2xvlyfp" path="res://scn/fx/frames/goute0008.png" id="8_k4tpb"]
+[ext_resource type="Texture2D" uid="uid://cg557t0jhw0pi" path="res://scn/fx/frames/goute0009.png" id="9_vxbnf"]
+[ext_resource type="Texture2D" uid="uid://ctb4vpubd66t7" path="res://scn/fx/frames/goute0010.png" id="10_ycutx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b4adq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2poh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cbnyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_20vpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_avty7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e1hi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ws7jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vrkxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v5qdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k4tpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vxbnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ycutx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Bonusloop" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b4adq")
+debug_color = Color(0, 0.627451, 0.501961, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, -22)
+sprite_frames = SubResource("SpriteFrames_h2poh")
+autoplay = "default"
+frame_progress = 0.929821

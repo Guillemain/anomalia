@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d250l15twom0d"]
+
+[ext_resource type="PackedScene" uid="uid://hdaric1ljtm8" path="res://scn/main.tscn" id="1_siyox"]
+
+[node name="Main" instance=ExtResource("1_siyox")]
+
+[node name="manager" parent="." index="6"]
+n_peon = 200
+max_cluster = 12
+good_n_noob = 10
+hard_n = 17
+
+[editable path="cameraman"]

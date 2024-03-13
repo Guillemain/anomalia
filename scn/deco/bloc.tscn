@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg6630om41iim"]
+
+[ext_resource type="Texture2D" uid="uid://bxdlh7jjwiwya" path="res://scn/deco/blocA.png" id="1_l5soq"]
+
+[node name="Bloc" type="StaticBody2D"]
+collision_layer = 65
+collision_mask = 65
+
+[node name="BlocA" type="Sprite2D" parent="."]
+position = Vector2(7, -58)
+texture = ExtResource("1_l5soq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-35, -42, -79, -9, -4, 37, 76, -7, 51, -40)

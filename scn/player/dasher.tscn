@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgqlr63kslhaw"]
+
+[ext_resource type="Script" path="res://scn/player/dasher.gd" id="1_vukl1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0siie"]
+
+[node name="Dasher" type="Node2D"]
+script = ExtResource("1_vukl1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0siie")
+debug_color = Color(0.521569, 0.415686, 1, 0.419608)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(33, -1)
+exclude_parent = false
+target_position = Vector2(624, -1)
+collision_mask = 2048
+collide_with_areas = true
+collide_with_bodies = false

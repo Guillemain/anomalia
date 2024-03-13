@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://rttlanujq5ej"]
+
+[ext_resource type="Texture2D" uid="uid://dkotwkciel5kd" path="res://scn/deco/mur.png" id="1_d083b"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wrhvk"]
+a = Vector2(-14, 15)
+b = Vector2(96, -54)
+
+[node name="Mur" type="StaticBody2D"]
+collision_layer = 65
+collision_mask = 65
+
+[node name="Mur" type="Sprite2D" parent="."]
+position = Vector2(34, -63)
+texture = ExtResource("1_d083b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_wrhvk")

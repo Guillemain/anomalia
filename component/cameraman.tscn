@@ -1,0 +1,185 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmiw1kbj64eqd"]
+
+[ext_resource type="Script" path="res://scn/cameraman.gd" id="1_aiu0b"]
+[ext_resource type="Script" path="res://scn/shaky.gd" id="2_3cxlp"]
+[ext_resource type="Theme" uid="uid://c14kom2lbgcfh" path="res://scn/font/usual.tres" id="3_ksr1s"]
+[ext_resource type="Script" path="res://component/HUD.gd" id="4_fl4at"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fso8l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3c3nn"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvnn7"]
+
+[node name="cameraman" type="Node2D"]
+z_index = 100
+z_as_relative = false
+script = ExtResource("1_aiu0b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -5)
+zoom = Vector2(0.65, 0.65)
+script = ExtResource("2_3cxlp")
+
+[node name="Control" type="Control" parent="."]
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("3_ksr1s")
+script = ExtResource("4_fl4at")
+
+[node name="GO" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 386.0
+offset_top = -131.0
+offset_right = 742.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Menu" type="Button" parent="Control/GO"]
+layout_mode = 0
+offset_left = -632.0
+offset_top = 240.0
+offset_right = -440.0
+offset_bottom = 339.0
+text = "MENU"
+
+[node name="replay" type="Button" parent="Control/GO"]
+layout_mode = 0
+offset_left = -403.0
+offset_top = 243.0
+offset_right = -113.0
+offset_bottom = 342.0
+text = "Try Again (press R)
+"
+
+[node name="Vic" type="Panel" parent="Control/GO"]
+layout_mode = 0
+offset_left = -626.0
+offset_top = 75.0
+offset_right = -111.0
+offset_bottom = 217.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/GO/Vic"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 38.0
+offset_right = 711.0
+offset_bottom = 245.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b] Game OVER [/b] 
+"
+
+[node name="a" type="Control" parent="Control"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(1, -526)
+
+[node name="prox" type="ProgressBar" parent="Control/a"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -13.425
+offset_left = -357.0
+offset_right = 359.0
+offset_bottom = -513.0
+pivot_offset = Vector2(359, 12)
+theme_override_styles/background = SubResource("StyleBoxFlat_fso8l")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3c3nn")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/a"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -13.425
+offset_left = -357.0
+offset_right = 359.0
+offset_bottom = -513.0
+pivot_offset = Vector2(358, 9)
+theme_override_styles/background = SubResource("StyleBoxEmpty_tvnn7")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Control/a/ProgressBar"]
+layout_mode = 0
+offset_left = -175.0
+offset_top = -3.0
+offset_right = 13.0
+offset_bottom = 64.0
+pivot_offset = Vector2(74, 15)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "The Eye (O)"
+
+[node name="Vic" type="Control" parent="Control"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Vic" type="Panel" parent="Control/Vic"]
+layout_mode = 0
+offset_left = -278.0
+offset_top = 29.0
+offset_right = 271.0
+offset_bottom = 245.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/Vic/Vic"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 38.0
+offset_right = 711.0
+offset_bottom = 245.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/bold_font_size = 60
+bbcode_enabled = true
+text = "[b] STAGE CLEAR [/b] 
+    Well done !"
+
+[node name="Menu" type="Button" parent="Control/Vic"]
+layout_mode = 0
+offset_left = -93.0
+offset_top = 281.0
+offset_right = 99.0
+offset_bottom = 380.0
+text = "MENU"
+
+[node name="replay2" type="Button" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = -129.0
+offset_top = 436.0
+offset_right = 161.0
+offset_bottom = 535.0
+text = "Try Again?
+"
+
+[connection signal="pressed" from="Control/GO/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Control/Vic/Menu" to="." method="_on_menu_pressed"]

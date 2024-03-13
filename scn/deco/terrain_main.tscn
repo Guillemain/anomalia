@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://7kuu5fq7a2wf"]
+
+[ext_resource type="Script" path="res://scn/deco/terrai.gd" id="1_a8jhq"]
+[ext_resource type="Texture2D" uid="uid://buiwjhm4k13b1" path="res://scn/deco/edge.png" id="2_wrnu8"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eu0oa"]
+normal = Vector2(0, 1)
+
+[node name="Terrain" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -28
+color = Color(0.929412, 0.87451, 0.705882, 1)
+script = ExtResource("1_a8jhq")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -20
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(1607, 1185, 1605, 658, 1590, 474, 1605, 277, 1590, 28, 1605, -124, 1590, -222, 1613, -321, 1601, -371, 1577, -401, 1534.28, -421.644, 1056, -426, 748, -414, 81, -426, -78, -401, -135, -420, -376, -401, -458, -418, -526, -377, -541, -204, -528, 6, -548, 348, -528, 504, -557, 701, -539, 905, -557, 1075, -557, 1199, -534, 1240, -479, 1257, -246, 1266, 805, 1253, 918, 1239, 1417, 1234, 1507, 1234, 1570, 1212, 1606, 1185)
+width = 100.0
+texture = ExtResource("2_wrnu8")
+texture_mode = 1
+antialiased = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-536, 363)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+rotation = -1.5692
+shape = SubResource("WorldBoundaryShape2D_eu0oa")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1590, 384)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+rotation = -1.5692
+shape = SubResource("WorldBoundaryShape2D_eu0oa")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(578, -411)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+rotation = -1.5692
+shape = SubResource("WorldBoundaryShape2D_eu0oa")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(545, 1238)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+rotation = -1.5692
+shape = SubResource("WorldBoundaryShape2D_eu0oa")

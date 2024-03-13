@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2fdwc4haoqat"]
+
+[ext_resource type="Script" path="res://scn/deco/terrai.gd" id="1_fsa1p"]
+[ext_resource type="Texture2D" uid="uid://buiwjhm4k13b1" path="res://scn/deco/edge.png" id="1_iwvoc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_eu0oa"]
+normal = Vector2(0, 1)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7wdy2"]
+a = Vector2(-40.1332, -48.8779)
+b = Vector2(-100.932, -509.517)
+
+[node name="Terrain" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -28
+color = Color(0.929412, 0.87451, 0.705882, 1)
+script = ExtResource("1_fsa1p")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -20
+texture_filter = 1
+texture_repeat = 2
+points = PackedVector2Array(1737, 135, 1634, 145, 1528, 166, 1386, 179, 1297, 171, 1172, 158, 1026, 133, 790, 141, 617, 154, 464, 147, 305, 141, 222, 162, 148, 173, 126, 291, 145, 423, 116, 506, 136, 595, 121, 687, 145, 753, 180, 792, 407, 793, 592, 775, 807, 745, 901, 646, 945, 590, 1015, 509, 1087, 441, 1168, 406, 1235, 394, 1305, 394, 1451, 392, 1555, 395, 1619, 383, 1765, 397, 1781, 645, 1796, 783, 1889, 792, 2161, 792, 2413, 780, 2464, 741, 2459, 381, 2460, 251, 2437, 193, 2392, 172, 2297, 158, 2170, 143, 2040, 137, 1945, 130, 1863, 137, 1810, 139, 1734, 138)
+width = 100.0
+texture = ExtResource("1_iwvoc")
+texture_mode = 1
+antialiased = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(218, 147)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20, 27)
+shape = SubResource("WorldBoundaryShape2D_eu0oa")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(113, 274)
+rotation = -1.54787
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(20, 27)
+shape = SubResource("WorldBoundaryShape2D_eu0oa")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(273, 812)
+rotation = -3.13135
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(20, 27)
+shape = SubResource("WorldBoundaryShape2D_eu0oa")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(2482, 232)
+rotation = -4.70632
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(20, 27)
+shape = SubResource("WorldBoundaryShape2D_eu0oa")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(322, 812)
+rotation = -4.70632
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(20, 27)
+shape = SubResource("SegmentShape2D_7wdy2")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(794, 772)
+rotation = -5.3909
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+position = Vector2(20, 27)
+shape = SubResource("SegmentShape2D_7wdy2")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(1094, 423)
+rotation = -4.62162
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(20, 27)
+shape = SubResource("SegmentShape2D_7wdy2")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(1564, 393)
+rotation = -4.46235
+scale = Vector2(0.570491, 0.458217)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+position = Vector2(20, 27)
+shape = SubResource("SegmentShape2D_7wdy2")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2(1870, 526)
+rotation = -4.46167
+scale = Vector2(1.41052, 1.10925)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+position = Vector2(-106.921, 159.521)
+rotation = 1.37185
+shape = SubResource("SegmentShape2D_7wdy2")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2(2249, 676)
+rotation = -5.44412
+scale = Vector2(1.41052, 1.10925)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+position = Vector2(134.028, 273.01)
+rotation = 0.305225
+shape = SubResource("SegmentShape2D_7wdy2")

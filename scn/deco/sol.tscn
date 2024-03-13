@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtdmcruhckx21"]
+
+[ext_resource type="Texture2D" uid="uid://48i7hxachut" path="res://scn/deco/sol4.png" id="1_nf0en"]
+[ext_resource type="Texture2D" uid="uid://bd1dk55ux627h" path="res://scn/deco/sold3.png" id="2_13atf"]
+[ext_resource type="Texture2D" uid="uid://yj3hwrfeu56a" path="res://scn/deco/sol.png" id="3_dj1ep"]
+[ext_resource type="Texture2D" uid="uid://dtpgoepoprx4w" path="res://scn/deco/sol2.png" id="4_ukgu6"]
+
+[node name="Sol" type="Node2D"]
+z_index = -5
+
+[node name="Sol4" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(24, 30)
+texture = ExtResource("1_nf0en")
+
+[node name="Sold3" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-158, 138)
+texture = ExtResource("2_13atf")
+
+[node name="Sold4" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-62, -90)
+texture = ExtResource("2_13atf")
+
+[node name="Sold5" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-110, -69)
+scale = Vector2(0.589286, 0.589286)
+texture = ExtResource("2_13atf")
+
+[node name="Sold6" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-10, -70)
+scale = Vector2(0.589286, 0.589286)
+texture = ExtResource("2_13atf")
+
+[node name="Sold7" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(53, -5)
+scale = Vector2(0.455357, 0.455357)
+texture = ExtResource("2_13atf")
+
+[node name="Sol" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-171, 57)
+texture = ExtResource("3_dj1ep")
+
+[node name="Sol6" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(131, -31)
+texture = ExtResource("3_dj1ep")
+flip_h = true
+flip_v = true
+
+[node name="Sol2" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(281, 120)
+texture = ExtResource("3_dj1ep")
+
+[node name="Sol3" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(107, 140)
+texture = ExtResource("4_ukgu6")
+flip_h = true
+
+[node name="Sol5" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(-210, -83)
+texture = ExtResource("4_ukgu6")
+flip_v = true
